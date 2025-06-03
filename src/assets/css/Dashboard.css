@@ -1,0 +1,170 @@
+/* Base styles (light mode) */
+.dashboard-container {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.top-navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1020;
+}
+
+.main-content {
+  padding-top: 20px;
+}
+
+/* Sidebar Styles */
+.sidebar-nav {
+  height: 100%;
+  padding: 20px 0;
+  background-color: #f8f9fa;
+  border-right: 1px solid #dee2e6;
+}
+
+.sidebar-nav .nav-link {
+  padding: 10px 20px;
+  color: #495057;
+  border-radius: 0;
+  margin-bottom: 5px;
+}
+
+.sidebar-nav .nav-link:hover {
+  background-color: #e9ecef;
+}
+
+.sidebar-nav .nav-link.active {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.sidebar-footer {
+  padding-top: 20px;
+  border-top: 1px solid #dee2e6;
+}
+
+/* Stats Cards */
+.stat-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  background-color: white;
+  border: 1px solid #dee2e6;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark Mode Overrides */
+[data-bs-theme="dark"] .dashboard-container {
+  background-color: #121212;
+}
+
+[data-bs-theme="dark"] .sidebar-nav {
+  background-color: #1a1a1a;
+  border-right-color: #2d2d2d;
+}
+
+[data-bs-theme="dark"] .sidebar-nav .nav-link {
+  color: #adb5bd;
+}
+
+[data-bs-theme="dark"] .sidebar-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme="dark"] .sidebar-nav .nav-link.active {
+  background-color: #4dabf7;
+  color: #121212;
+}
+
+[data-bs-theme="dark"] .sidebar-footer {
+  border-top-color: #2d2d2d;
+}
+
+[data-bs-theme="dark"] .stat-card {
+  background-color: #1e1e1e;
+  border-color: #2d2d2d;
+}
+
+[data-bs-theme="dark"] .top-navbar {
+  background-color: #1a1a1a !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-bs-theme="dark"] .table {
+  --bs-table-bg: #1e1e1e;
+  --bs-table-striped-bg: #2d2d2d;
+  --bs-table-striped-color: #f8f9fa;
+  --bs-table-active-bg: #373737;
+  --bs-table-active-color: #f8f9fa;
+  --bs-table-hover-bg: #2d2d2d;
+  --bs-table-hover-color: #f8f9fa;
+  color: #f8f9fa;
+  border-color: #2d2d2d;
+}
+
+[data-bs-theme="dark"] .form-control {
+  background-color: #2d2d2d;
+  color: #f8f9fa;
+  border-color: #2d2d2d;
+}
+
+[data-bs-theme="dark"] .form-control:focus {
+  background-color: #2d2d2d;
+  color: #f8f9fa;
+  border-color: #4dabf7;
+  box-shadow: 0 0 0 0.25rem rgba(77, 171, 247, 0.25);
+}
+
+[data-bs-theme="dark"] .text-muted {
+  color: #adb5bd !important;
+}
+
+[data-bs-theme="dark"] .activity-item {
+  border-bottom-color: #2d2d2d;
+}
+
+/* Rest of your existing CSS remains the same */
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 0.6rem;
+}
+
+.user-profile img {
+  width: 30px;
+  height: 30px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.search-box {
+  width: 250px;
+}
+
+.activity-list {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.activity-item {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.activity-icon {
+  font-size: 1.2rem;
+}

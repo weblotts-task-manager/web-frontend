@@ -1,0 +1,81 @@
+:root {
+  --background: #ffffff;
+  --text: #000000;
+}
+
+[data-bs-theme="dark"] {
+  --background: #1a1a1a;
+  --text: #ffffff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom navbar theming */
+.navbar {
+  --bs-navbar-color: var(--navbar-text);
+  --bs-navbar-hover-color: var(--navbar-text-hover);
+  --bs-navbar-disabled-color: var(--navbar-text-disabled);
+  --bs-navbar-active-color: var(--navbar-text-active);
+  --bs-navbar-brand-color: var(--navbar-text);
+  --bs-navbar-brand-hover-color: var(--navbar-text-hover);
+  --bs-navbar-toggler-border-color: var(--navbar-toggler-border);
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+
+  background-color: var(--navbar-bg) !important;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler {
+  border-color: var(--navbar-toggler-border) !important;
+}
+
+[data-bs-theme="light"] {
+  --navbar-bg: #f8f9fa;
+  --navbar-text: #212529;
+  --navbar-text-hover: rgba(0, 0, 0, 0.7);
+  --navbar-text-active: rgba(0, 0, 0, 0.9);
+  --navbar-text-disabled: rgba(0, 0, 0, 0.3);
+  --navbar-toggler-border: rgba(0, 0, 0, 0.1);
+  --dropdown-bg: #ffffff;
+}
+
+[data-bs-theme="dark"] {
+  --navbar-bg: #212529;
+  --navbar-text: rgba(255, 255, 255, 0.85);
+  --navbar-text-hover: rgba(255, 255, 255, 1);
+  --navbar-text-active: rgba(255, 255, 255, 1);
+  --navbar-text-disabled: rgba(255, 255, 255, 0.3);
+  --navbar-toggler-border: rgba(255, 255, 255, 0.1);
+  --dropdown-bg: #343a40;
+}
+
+/* Dropdown theming */
+.dropdown-menu {
+  background-color: var(--dropdown-bg) !important;
+  border-color: var(--navbar-toggler-border) !important;
+}
+
+.dropdown-item {
+  color: var(--navbar-text) !important;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--navbar-toggler-border) !important;
+  color: var(--navbar-text-hover) !important;
+}
+
+.login-box {
+  background-color: var(--background);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+.vh100 {
+  height: 85svh;
+}
