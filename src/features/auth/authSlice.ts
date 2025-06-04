@@ -6,7 +6,6 @@ import {
 import api from "../../api/axios";
 
 interface AuthState {
-  user: object | null;
   token: string | null;
   refreshToken: string | null;
   isAuthenticated: boolean;
@@ -15,11 +14,10 @@ interface AuthState {
 }
 
 const initialState: AuthState = {
-  user: {},
   token: null,
   refreshToken: null,
   isAuthenticated: false,
-  loading: false,
+  loading: true,
   error: null,
 };
 
@@ -32,7 +30,7 @@ export const loginUser = createAsyncThunk(
   ) => {
     try {
       const res = await api.post("/auth/login", credentials);
-      console.log(res.data);
+      // console.log(res.data);
       return res.data;
     } catch (error: any) {
       return rejectWithValue(error.response?.data?.message || "Login failed");
@@ -45,11 +43,35 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     logout(state) {
-      state.user = null;
       state.token = null;
       state.isAuthenticated = false;
       state.loading = false;
       state.error = null;
+      localStorage.removeItem("auth");
+      window.location.reload();
+    },
+    refreshTokenAction(
+      state,
+      action: PayloadAction<{
+        token: string;
+        refreshToken: string;
+      }>
+    ) {
+      state.token = action.payload.token;
+      state.refreshToken = action.payload.refreshToken;
+      state.loading = false;
+      state.error = null;
+      state.isAuthenticated = true;
+    },
+    authValueChange(
+      state,
+      action: PayloadAction<{
+        key: string;
+        value: any;
+      }>
+    ) {
+      const { key, value } = action.payload as any;
+      (state as any)[key] = value;
     },
   },
   extraReducers: (builder) => {
@@ -64,13 +86,24 @@ const authSlice = createSlice({
           state,
           action: PayloadAction<{
             user: object;
-            token: string;
+            accessToken: string;
             refreshToken: string;
           }>
         ) => {
-          state.user = action.payload.user;
-          state.token = action.payload.token;
-          state.refreshToken = action.payload.refreshToken;
+          console.log(action);
+          const token = action.payload.accessToken;
+          const refreshToken = action.payload.refreshToken;
+          state.token = token;
+          state.refreshToken = refreshToken;
+          console.log(action);
+          window.localStorage.setItem(
+            "auth",
+            JSON.stringify({
+              token,
+              refreshToken,
+              isAuthenticated: true,
+            })
+          );
           state.isAuthenticated = true;
           state.loading = false;
           state.error = null;
@@ -83,5 +116,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { logout } = authSlice.actions;
+export const { logout, refreshTokenAction, authValueChange } =
+  authSlice.actions;
 export default authSlice.reducer;

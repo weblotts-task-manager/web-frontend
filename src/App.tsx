@@ -1,17 +1,10 @@
-// import { useSelector } from "react-redux";
 import { BrowserRouter } from "react-router";
-// import AuthNavigation from "./navigation/AuthNavigation";
-import MainNavigation from "./routes/MainNavigation";
+import MainRouter from "./routes";
 
-function App() {
-  // const { auth } = useSelector((state: any) => state.auth);
-
-  // {auth.isAuthenticated ? <MainNavigation /> : <AuthNavigation />}
-  return (
-    <BrowserRouter>
-      <MainNavigation />
-    </BrowserRouter>
-  );
-}
+const App = () => (
+  <BrowserRouter>
+    <MainRouter />
+  </BrowserRouter>
+);
 
 export default App;

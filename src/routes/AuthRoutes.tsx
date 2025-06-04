@@ -7,8 +7,8 @@ export default function AuthNavigation() {
   return (
     <Routes>
       <Route path="/" element={<Authentication />}>
-        <Route index element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route index element={<LoginPage />} />
       </Route>
     </Routes>
   );

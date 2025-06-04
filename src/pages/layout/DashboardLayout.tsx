@@ -1,9 +1,9 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { Outlet } from "react-router";
-import DashboardNavbar from "../../../containers/DashboardNavbar";
-import DashboardSidebar from "./DashboardSidebar";
+import DashboardNavbar from "../../containers/DashboardNavbar";
+import DashboardSidebar from "../protected/dashboard/DashboardSidebar";
 
-const Dashboard = () => {
+const DashboardLayout = () => {
   return (
     <div className="dashboard-container">
       <DashboardNavbar />
@@ -25,4 +25,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default DashboardLayout;

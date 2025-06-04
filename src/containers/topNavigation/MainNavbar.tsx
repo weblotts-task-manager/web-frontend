@@ -1,12 +1,13 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { useSelector } from "react-redux";
+
 import Logo from "../../assets/img/project-logo--no-bg.png";
 import Logout from "../../components/Logout";
 import ThemeToggle from "../../components/ThemeToggle";
+import useAuth from "../../routes/useAuth";
 
 export default function MainNavbar() {
   const currentUrl = window.location.pathname;
-  const { auth } = useSelector((state: any) => state.auth);
+  const auth = useAuth();
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container fluid={currentUrl === "/dashboard"}>

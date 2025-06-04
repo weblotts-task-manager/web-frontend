@@ -13,6 +13,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
   async function onSubmit(data: { email: string; password: string }) {
     const resultAction = await dispatch(loginUser(data));
+    // console.log(resultAction);
     if (loginUser.fulfilled.match(resultAction)) {
       navigate("/dashboard");
     }

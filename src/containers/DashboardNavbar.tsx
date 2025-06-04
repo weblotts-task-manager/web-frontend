@@ -33,13 +33,13 @@ export default function DashboardNavbar() {
           </div>
 
           <Nav className="align-items-center">
-            <Nav.Link href="/profile" className="user-profile">
+            <Nav.Link href="/dashboard/profile" className="user-profile">
               <img
                 src="https://pyxis.nymag.com/v1/imgs/51b/28a/622789406b8850203e2637d657d5a0e0c3-avatar-rerelease.1x.rsquare.w1400.jpg"
                 alt="User"
                 className="rounded-circle me-2"
               />
-              {auth.user.user.name}
+              {auth?.user?.user?.name}
             </Nav.Link>
           </Nav>
         </div>

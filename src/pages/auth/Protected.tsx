@@ -1,12 +1,15 @@
-import { useSelector } from "react-redux";
-import { Navigate, Outlet, useLocation } from "react-router";
+import type { ReactNode } from "react";
+import { Navigate, Outlet } from "react-router";
+import useAuth from "../../routes/useAuth";
 
 export default function Protected() {
-  const { auth } = useSelector((state: any) => state.auth);
-  const location = useLocation();
-  return auth.isAuthenticated ? (
-    <Outlet />
-  ) : (
-    <Navigate to={"/auth"} state={{ from: location }} replace />
-  );
+  const { isAuthenticated, loading } = useAuth();
+  if (loading) return <p>Auth Loading...</p>;
+  return isAuthenticated ? <Outlet /> : <Navigate to="/auth" replace />;
 }
+
+export const AuthWrapper = ({ children }: { children: ReactNode }) => {
+  const { isAuthenticated, loading } = useAuth();
+  if (loading) return <p>Auth Loading...</p>;
+  return isAuthenticated ? <Navigate to="/dashboard" replace /> : children;
+};

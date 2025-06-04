@@ -3,12 +3,14 @@ import { Outlet } from "react-router";
 import { Link, useLocation } from "react-router-dom";
 import MainFooter from "../../containers/MainFooter";
 import MainNavbar from "../../containers/topNavigation/MainNavbar";
+import { AuthWrapper } from "./Protected";
 
 const Authentication = () => {
   const location = useLocation();
   const currentUrl = location.pathname;
+
   return (
-    <>
+    <AuthWrapper>
       <MainNavbar />
       <Container className="d-flex align-items-center vh100">
         <Row className="d-flex justify-content-center align-items-center">
@@ -43,7 +45,7 @@ const Authentication = () => {
         </Row>
       </Container>
       <MainFooter />
-    </>
+    </AuthWrapper>
   );
 };
 export default Authentication;

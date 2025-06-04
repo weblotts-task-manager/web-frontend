@@ -22,13 +22,14 @@ const InputField: React.FC<InputProps> = ({
   ...props
 }) => {
   return (
-    <FloatingLabel className="mb-4" label={label}>
+    <FloatingLabel className="mb-4" label={label} id={name}>
       <Controller
         name={name}
         control={control}
         render={({ field, fieldState: { error } }) => (
           <>
             <Form.Control
+              id={name}
               placeholder={placeholder}
               {...field}
               {...(() => {
@@ -36,6 +37,7 @@ const InputField: React.FC<InputProps> = ({
                 return typeof size === "number" ? rest : props;
               })()}
               className="flex-1 outline-none"
+              autoComplete="off"
             />
             {error && (
               <Form.Text className="text-danger text-sm mt-2">

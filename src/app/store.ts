@@ -1,24 +1,23 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { persistReducer, persistStore } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { persistStore } from "redux-persist";
 
 import authReducer from "../features/auth/authSlice";
 import themeReducer from "../features/theme/themeSlice";
 
 //persist user in localstorage
-const persistConfig = {
-  key: "root",
-  storage,
-  whitelist: ["auth"],
-};
+// const persistConfig = {
+//   key: "root",
+//   storage,
+//   whitelist: ["auth"],
+// };
 
 const rootReducer = combineReducers({ auth: authReducer });
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+// const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: {
     theme: themeReducer,
-    auth: persistedReducer,
+    auth: rootReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
